@@ -22,7 +22,7 @@ def If_database_exist(host,user,password):
         database=input("Enter the Database you wanna work on: ")
         print("Checking if Database Exists...")
         cur=mydb.cursor()
-        cur.execute('SHOW DATABASES')
+        cur.execute('SHOW DATABASES;')
         databases=[row[0] for row in cur.fetchall()]
         if database in databases:
             print("Database Exists!!")
@@ -30,21 +30,28 @@ def If_database_exist(host,user,password):
             cur=mydb.cursor()
             cur.execute(f"USE {database}")
             print('Ready to use database!!')
-            return cur
+            cur.execute('SHOW TABLES;')
+            
         else:
+            print(f"Creating database {database}")
             # Assuming you have a cursor object after connecting to MySQL (not shown here)
             cur.execute(f"CREATE DATABASE {database}")
             # (Optional) Use the new database
             cur.execute(f"USE {database}")
-            print('Ready to use database!!')
+            print(f'Ready to use {database}!!')
             return cur
     else:
         print("Try to fix the code...Unable to connect")
         sys.exit(-1)
 
-def check_table(cur):
-    cut.execute('SHOW TABLES')
+
+host='localhost'
 print("Establishing Connection...")
+user=input("Enter the Username of MySQL: ")
+password=input("Enter the Password for given host: ")
+cur=If_database_exist(host,user,password)
+print("Checking database")
+
 # Extracting html code directly from the website for realtime data to the total no.of pages
 internshala_html_data=requests.get("https://internshala.com/jobs/").text
 
