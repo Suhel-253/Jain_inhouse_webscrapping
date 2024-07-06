@@ -9,7 +9,7 @@ def insert_values(cur,table_name):
         main_content=soup.find('ul', class_="new-joblist").find_all('li',class_='clearfix job-bx wht-shd-bx')       
         for each_job in main_content:
             job_title=each_job.h2.text.strip()
-            company_name=each_job.h3.text.strip().replace('\r\n','').split('  ')[0]
+            company_name=each_job.h3.text.strip().replace('\r\n','').split('  ')[0][:70]
             experience=each_job.ul.find_all('li')
             exp=experience[0].text.replace('card_travel','')
             if experience[1].find('i',class_="material-icons rupee"):
