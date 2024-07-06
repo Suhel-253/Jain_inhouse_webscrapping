@@ -30,8 +30,8 @@ def If_database_exist(host,user,password):
         mydb.commit()
         cur=timesjobs_scrape.insert_values(cur,table_name)
         mydb.commit()
-        # cur=bigshyft_scrape.insert_values(cur,table_name)
-        # mydb.commit()
+        cur=bigshyft_scrape.insert_values(cur,table_name)
+        mydb.commit()
         return cur
     
     def ask_for_table(cur):
@@ -76,7 +76,7 @@ def If_database_exist(host,user,password):
                 print("Table doesn't exists....creating a new one")
                 cur.execute(f"""
                 CREATE TABLE {table_name}
-                (JOB_TITLE VARCHAR(70),
+                (JOB_TITLE VARCHAR(80),
                 COMPANY_NAME VARCHAR(70),
                 SKILLS VARCHAR(300) DEFAULT NULL,
                 EXPERIENCE VARCHAR(50) DEFAULT NULL,
