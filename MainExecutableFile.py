@@ -30,8 +30,8 @@ def If_database_exist(host,user,password):
         mydb.commit()
         cur=timesjobs_scrape.insert_values(cur,table_name)
         mydb.commit()
-        cur=bigshyft_scrape.insert_values(cur,table_name)
-        mydb.commit()
+        # cur=bigshyft_scrape.insert_values(cur,table_name)
+        # mydb.commit()
         return cur
     
     def ask_for_table(cur):
