@@ -1,0 +1,7 @@
+The whole WebScrapping program has few pre-requisites for program to execute, those are as mentioned below:
+1. Python 3.x version
+2. MySQL 8.x version Database Software (Command line interface)
+3. BeautifulSoup4 (pip install BeautifulSoup4) (from bs4 import BeautifulSoup)
+4. requests library (pip install requests) (import requests)
+5. lxml parser (pip install lxml)
+6. MySQL Connector for python (pip install mysql-connector-python) (import mysql.connector)
